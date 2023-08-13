@@ -21,8 +21,9 @@ public class Algo_1{
                 }
             }
 
-        } while (num < 0);
+        } while (num <= 0);
 
+        //Print the fibonacci sequance
         for(int i=0; i<fabSeq.length;i++){
             System.out.print(fabSeq[i] + ",");
         }

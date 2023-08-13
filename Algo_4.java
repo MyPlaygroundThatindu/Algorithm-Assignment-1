@@ -8,7 +8,7 @@ public class Algo_4 {
             nums[nums.length-(i+1)] = temp;   
         }
 
-        //Print the array
+        //Print the reverese array
         for(int i=0; i<nums.length;i++){
             System.out.print(nums[i] + ",");
         }
