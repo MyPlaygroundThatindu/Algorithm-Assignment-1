@@ -1,27 +1,27 @@
 import java.util.Scanner;
 
 public class Algo_5 {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        String word = "";
-        char[] charArray = new char[word.length()];
-
+        loop:
         do{
-            System.out.print("Please enter a word :");
-            word = scanner.nextLine();
-
-            if(word.isBlank()) System.out.println("Please enter a valid word");
-            else{
-                charArray = word.toLowerCase().toCharArray();
-                for(int i=0; i<charArray.length/2; i++){
-                    char temp = charArray[i];
-                    charArray[i] = charArray[charArray.length -(i+1)];
-                    charArray[charArray.length-(i+1)] =temp;
-                }        
-
+            System.out.print("Enter a text: ");
+            char[] chars = scanner.nextLine().strip().toCharArray();
+            if (chars.length == 0){
+                System.out.println("Text can't be empty");
+                continue;
             }
-            System.out.println(charArray);
+            for (int i = 0; i < chars.length; i++) {
+                if (chars[i] > 128){
+                    System.out.println("Only ASCII characters are supported");
+                    continue loop;
+                }
+            }
 
-        } while (word.isBlank());
+            for (int i = chars.length - 1; i >= 0; i--) {
+                System.out.print(chars[i]);
+            }
+            System.out.println();
+        }while(true);
     }
 }
